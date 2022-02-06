@@ -1,21 +1,29 @@
-import React from 'react'
-import { Navbar,Offcanvas,Container,Nav, Form , NavDropdown , Button , FormControl } from 'react-bootstrap'
-
+import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from 'react-router-dom';
+import React from 'react';
+import Header from './components/Header';
+import WriteBlog from './components/WriteBlog';
+import HomePage from './components/HomePage'
 class App extends React.Component {
-  render(){
-    return (
-		<Navbar bg="light" variant="light">
-			<Container fluid>
-				<Navbar.Brand href="#home">World Of Memoirs</Navbar.Brand>
-				<Nav className="me-auto">
-					<Nav.Link href="#home">Home</Nav.Link>
-					<Nav.Link href="#features">Features</Nav.Link>
-					<Nav.Link href="#pricing">Pricing</Nav.Link>
-				</Nav>
-			</Container>
-		</Navbar>
-    );
+  constructor(props) {
+    super(props);
   }
+  render() {
+      return (
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/writeblog" component={WriteBlog} />
+          </Switch>
+        </Router>
+      )
+    }
 }
 
 export default App;
