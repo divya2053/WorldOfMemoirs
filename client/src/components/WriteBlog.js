@@ -21,7 +21,7 @@ class WriteBlog extends React.Component {
 
     handleClick(event){
         event.preventDefault();
-        console.log(this.state.title , typeof(this.state.text));
+        console.log(this.state.title , this.state.text);
     }
 
     render() {

@@ -1,7 +1,4 @@
-.container{
-    display: flex;
-    flex-direction: row;
-}
+
 
 .parent {
     display: flex;
@@ -9,8 +6,8 @@
 }
 
 .child {
-    flex: 1 0 21%;
+    flex: 1 0 22%;
     margin: 20px;
-    width: 18rem;
+    width: 15rem;
     /* max-width: 18rem; */
 }
