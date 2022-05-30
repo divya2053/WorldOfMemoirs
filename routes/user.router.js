@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-const nodefetch = require('node-fetch');
+// const nodefetch = require('node-fetch');
 
 // requiring dependencies, models and middlewares
 const express = require('express');
@@ -177,10 +177,10 @@ router.post(
 			const verifyURL = `https://google.com/recaptcha/api/siteverify?${query}`;
 
 			// Make a request to verifyURL
-			const body = await nodefetch(verifyURL).then((res) => res.json());
+			//const body = await nodefetch(verifyURL).then((res) => res.json());
 
 			// If not successful
-			if (body.success !== undefined && !body.success) {
+			//if (body.success !== undefined && !body.success) {
 				return res.status(401).render('./auth/signUp', {
 					error: 'Failed captcha verification',
 					data: {
@@ -192,7 +192,7 @@ router.post(
 						confirmPassword,
 					},
 				});
-			}
+			
 		}
 		// return res.json({
 		// 	success: false,
@@ -244,7 +244,7 @@ router.post(
 						}
 						const token = jwt.sign(
 							{ _id: doc._id },
-							process.env.SECRET_KEY
+							"secret"
 						);
 
 						// Send back the token to the user as a httpOnly cookie
@@ -286,7 +286,7 @@ router.post('/log-in', loginValidation, async (req, res) => {
 
 			const token = jwt.sign(
 				{ _id: doc._id, email },
-				process.env.SECRET_KEY
+				"secret"
 			);
 
 			res.cookie('token', token, {

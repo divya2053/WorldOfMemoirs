@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
 	}
 
 	// Check if it is valid
-	jwt.verify(token, process.env.SECRET_KEY, (err, payload) => {
+	jwt.verify(token, 'secret', (err, payload) => {
 		if (err || !payload) {
 			return next();
 		}
